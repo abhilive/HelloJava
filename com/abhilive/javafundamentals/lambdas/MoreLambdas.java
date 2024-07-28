@@ -1,4 +1,7 @@
+package com.abhilive.javafundamentals.lambdas;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
@@ -7,8 +10,7 @@ public class MoreLambdas {
     
     public static void main(String[] args) {
 
-        List<String> strings = 
-            new ArrayList<>(List.of("one", "two", "three", "four", "five"));
+        List<String> strings = Arrays.asList("one", "two", "three", "four", "five");
 
         Predicate<String> filter = string -> string.startsWith("t");
         strings.removeIf(filter);

@@ -1,16 +1,37 @@
-import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+package com.abhilive.javafundamentals;
 
-/**
- * Hello
- */
+import java.io.PrintStream;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Hello {
 
-    public static void main(String[] args) {
+    public static void main(String args[]) {
+        System.out.println("Hello World !!");
+        System.out.println("Thread Name is:" +Thread.currentThread().getName());
+
+        Map<String, String> metadata = new HashMap<>();
+        metadata.put("Father", "Satya Prakash");
+        metadata.put("Mother", "Neelam Devi");
+
+        ImmutableStudentClass student = new ImmutableStudentClass("Ravi", 25, metadata);
+
+        System.out.println(student.getName());
+        System.out.println(student.getRegNo());
+
+        metadata.put("Address", "123, Dadar Road, Mumbai");
+        // Remains unchanged due to deep copy in constructor
+        System.out.println(student.getMetadata());
+
+        student.getMetadata().put("Father", "Surya Prakash");
+        // Remains unchanged due to deep copy in getter
+        System.out.println(student.getMetadata());
+
+        /**/
+
+    }
+
+    public static void main2(String[] args) {
         PrintStream out = System.out;
         out.println("Hello World !!");
 
@@ -27,7 +48,7 @@ public class Hello {
 
         Integer[] intArray = new Integer[]{9, 8 ,8 ,9, 7, 5, 4, 3, 2, 1};
         List<Integer> intListWithDup = Arrays.asList(intArray);
-        
+
         List<Integer> listwithoutDup = intListWithDup.stream().distinct().collect(Collectors.toList());
         listwithoutDup.forEach(s -> System.out.println(s));
         // for(int in : listwithoutDup) {

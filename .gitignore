@@ -1,3 +1,13 @@
+# Intellij Idea
+.idea
+*.iml
+
+# Compiled files - out folder
+/out
+
+# Object File
+abc.obj
+
 # Compiled class file
 *.class
 

@@ -1,3 +1,5 @@
+package com.abhilive.javafundamentals.lambdas;
+
 import java.util.function.DoubleToIntFunction;
 import java.util.function.IntSupplier;
 
