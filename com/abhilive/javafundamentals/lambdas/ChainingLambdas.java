@@ -31,7 +31,7 @@ public class ChainingLambdas {
         System.out.println("For empty" + isEmpty.test(""));
         System.out.println("For Hello" + isEmpty.test("Hello"));
 
-        Predicate<String> isNeitherEmptyNorNull = isNull.negate().and(isEmpty.negate());
+        Predicate<String> isNeitherEmptyNorNull = isNull.negate().or(isEmpty.negate());
         System.out.println("For null = " + isNeitherEmptyNorNull.test(null));
         System.out.println("For empty = " + isNeitherEmptyNorNull.test(""));
         System.out.println("For Hello = " + isNeitherEmptyNorNull.test("Hello"));

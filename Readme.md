@@ -52,3 +52,7 @@ Runnable alert =
 	() -> System.out.println("I am Groot");
 
 ```
+
+Marker Interface (The Interface which doesn't have any method declaration):
+Clonable & Serializable
+https://www.youtube.com/watch?v=JruilTDcyGc
