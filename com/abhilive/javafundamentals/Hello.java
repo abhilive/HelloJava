@@ -2,6 +2,7 @@ package com.abhilive.javafundamentals;
 
 import java.io.PrintStream;
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Hello {
@@ -28,6 +29,11 @@ public class Hello {
         System.out.println(student.getMetadata());
 
         /**/
+        System.out.println("String group by nos counts:");
+        List<String> stringList = Arrays.asList("AA", "BB", "AA", "CC");
+        Map<String, Long> result = stringList.stream()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        result.forEach((k,v) -> System.out.println("String -> "+k+" Count: "+v));
 
     }
 
