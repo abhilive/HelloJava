@@ -35,6 +35,9 @@ public class Hello {
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
         result.forEach((k,v) -> System.out.println("String -> "+k+" Count: "+v));
 
+        stringList.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        result.forEach((k, v) -> System.out.println("String -> "+k+" Count: "+v));
+
     }
 
     public static void main2(String[] args) {
@@ -80,4 +83,7 @@ public class Hello {
         nums.stream().map(n -> n*10).forEach(System.out::println);
 
     }
+
+
+
 }
