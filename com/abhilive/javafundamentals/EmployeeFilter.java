@@ -1,6 +1,7 @@
 package com.abhilive.javafundamentals;
 
 import com.abhilive.javafundamentals.model.Employee;
+import jdk.nashorn.internal.parser.JSONParser;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -20,7 +21,14 @@ public class EmployeeFilter {
         employeeList.forEach(System.out::println);
 
         System.out.println("** Order employee based on Salary");
-        employeeList.stream().sorted((a, b) -> b.getSalary() - a.getSalary()).forEach(System.out::println);
+        employeeList.stream().sorted((a, b) -> b.getSalary() - a.getSalary())
+                .forEach(System.out::println);
+
+        System.out.println("** Find employee with second highest salary");
+        employeeList.stream().collect(Collectors.groupingBy(Employee::getSalary))
+                .entrySet().stream()
+                .sorted(Collections.reverseOrder(Map.Entry.comparingByKey()))
+                .collect(Collectors.toList()).get(1).getValue().forEach(System.out::println);
 
         System.out.println("** Top 3 high paid Employees");
         employeeList.stream().sorted((a, b) -> b.getSalary() - a.getSalary())
